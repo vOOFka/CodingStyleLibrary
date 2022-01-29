@@ -1,8 +1,8 @@
 import SwiftUI
 
-@propertyWrapper struct CodingStyle<Value: StringProtocol>: DynamicProperty {
+@propertyWrapper public struct CodingStyle<Value: StringProtocol>: DynamicProperty {
     //camelCase    snake_case    kebab-case
-    enum TypeStyle {
+    public enum TypeStyle {
         case camelCase, snakeCase, kebabCase
     }
     
@@ -16,7 +16,7 @@ import SwiftUI
         )
     }
     
-    init(wrappedValue: Value, typeStyle: TypeStyle) {
+    public init(wrappedValue: Value, typeStyle: TypeStyle) {
         _value = State(wrappedValue: wrappedValue)
         self.typeStyle = typeStyle
     }
