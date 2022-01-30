@@ -8,6 +8,8 @@ Camel case style: "Hello big world!" -> "helloBigWorld!"
 Snake case style: "Hello big world!" -> "hello_big_world!"
 Kebab case style: "Hello big world!" -> "hello-big-world!"
 
+![](CodingStyleLibrary_example.gif)
+
 # Usage example:
 
 import SwiftUI
