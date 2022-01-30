@@ -1,7 +1,6 @@
 import SwiftUI
 
 @propertyWrapper public struct CodingStyle<Value: StringProtocol>: DynamicProperty {
-    //camelCase    snake_case    kebab-case
     public enum TypeStyle {
         case camelCase, snakeCase, kebabCase
     }
@@ -77,7 +76,7 @@ extension StringProtocol {
         let first = String(describing: parts.first!).lowercasingFirst
         let rest = parts.dropFirst().map({String($0).lowercasingFirst})
         
-        return ([first] + rest).joined(separator: "_").lowercased()
+        return ([first] + rest).joined(separator: "_").lowercased().trimmingCharacters(in: CharacterSet(charactersIn: "_"))
     }
     
     func toKebabCase() -> String {
@@ -88,6 +87,6 @@ extension StringProtocol {
         let first = String(describing: parts.first!).lowercasingFirst
         let rest = parts.dropFirst().map({String($0).lowercasingFirst})
         
-        return ([first] + rest).joined(separator: "-").lowercased()
+        return ([first] + rest).joined(separator: "-").lowercased().trimmingCharacters(in: CharacterSet(charactersIn: "-"))
     }
 }
